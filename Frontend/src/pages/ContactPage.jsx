@@ -24,7 +24,7 @@ const ContactPage = () => {
 
     try {
       const response = await axios.post(
-        "https://abr-retail.onrender.com",
+        "https://abr-retail.onrender.com/send-email",
         formData
       );
 
