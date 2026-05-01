@@ -1,12 +1,5 @@
 import { Link } from "react-router-dom";
 
-import icon1 from "../assets/img/icon/services_icon01.svg";
-import icon2 from "../assets/img/icon/services_icon02.svg";
-import icon3 from "../assets/img/icon/services_icon03.svg";
-import icon4 from "../assets/img/icon/services_icon04.svg";
-import icon5 from "../assets/img/icon/services_icon05.svg";
-import icon6 from "../assets/img/icon/services_icon06.svg";
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -54,10 +47,10 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* TOP SECTION */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-items-center mb-10 gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-items-center mb-10 gap-6 md:gap-10">
           
           <div>
-            <p className="text-blue-600 font-semibold text-sm">
+            <p className="text-blue-500 font-semibold text-sm">
               What We Do
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-50">
@@ -65,7 +58,7 @@ const Services = () => {
             </h2>
           </div>
 
-          <p className="text-gray-100 max-w-xl">
+          <p className="text-gray-300 max-w-xl text-sm md:text-base">
             We provide complete retail solutions including design,
             manufacturing, branding, and execution to help businesses
             create impactful retail environments.
@@ -75,14 +68,14 @@ const Services = () => {
         {/* SLIDER */}
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={30}
+          spaceBetween={20} // tighter on mobile
           navigation={{
             nextEl: ".next-btn",
             prevEl: ".prev-btn",
           }}
           pagination={{ clickable: true }}
           breakpoints={{
-            320: { slidesPerView: 1 },
+            320: { slidesPerView: 1.1 }, // premium peek effect
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
@@ -90,30 +83,40 @@ const Services = () => {
           {services.map((service, index) => (
             <SwiperSlide key={index}>
               
-              <div className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 group">
+              <div className="bg-gray-800/90 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-md 
+                              transition duration-300 
+                              hover:shadow-xl hover:-translate-y-1
+                              active:scale-[0.97] active:shadow-lg
+                              group">
                 
                 {/* ICON */}
-                <div className="text-4xl mb-4  transition">
+                <div className="text-4xl mb-4 transition 
+                                group-hover:scale-110 
+                                group-active:scale-95">
                   {service.icon}
                 </div>
 
                 {/* TITLE */}
-                <h4 className="text-xl font-semibold mb-2 text-gray-400">
+                <h4 className="text-lg md:text-xl font-semibold mb-2 text-gray-200 
+                               group-hover:text-white group-active:text-white transition">
                   {service.title}
                 </h4>
 
                 {/* DESC */}
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-400 text-sm md:text-base mb-4">
                   {service.desc}
                 </p>
 
                 {/* LINK */}
-                <a
-                  href="/services"
-                  className="text-blue-500 font-medium flex items-center gap-2 group-hover:gap-3 transition-all"
+                <Link
+                  to="/services"
+                  className="text-blue-400 text-sm md:text-base font-medium flex items-center gap-2 
+                             transition-all
+                             group-hover:gap-3 
+                             active:gap-3 active:text-blue-300"
                 >
                   Learn More →
-                </a>
+                </Link>
               </div>
 
             </SwiperSlide>
@@ -122,10 +125,19 @@ const Services = () => {
 
         {/* NAV BUTTONS */}
         <div className="flex justify-center gap-4 mt-8">
-          <button className="prev-btn bg-white shadow px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white transition">
+          <button className="prev-btn bg-white/90 backdrop-blur px-4 py-2 rounded-full 
+                             shadow-md 
+                             hover:bg-blue-600 hover:text-white
+                             active:scale-95 active:bg-blue-700 active:text-white
+                             transition">
             ←
           </button>
-          <button className="next-btn bg-white shadow px-4 py-2 rounded-full hover:bg-bue-600 hover:text-white transition">
+
+          <button className="next-btn bg-white/90 backdrop-blur px-4 py-2 rounded-full 
+                             shadow-md 
+                             hover:bg-blue-600 hover:text-white
+                             active:scale-95 active:bg-blue-700 active:text-white
+                             transition">
             →
           </button>
         </div>

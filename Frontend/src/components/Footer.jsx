@@ -89,7 +89,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-8 border-t border-gray-600 pt-4 flex flex-wrap items-center justify-between text-white text-sm">
-          <p>© 2026 ABR Retail. All Rights Reserved | Design by .......</p>
+          <p>© 2026 ABR Retail. All Rights Reserved | Design by Monu Sharma</p>
           <div className="flex space-x-4">
             <a href="#" className="hover:text-amber-600">Privacy Policy</a>
             <a href="#" className="hover:text-amber-600">Terms & Conditions</a>
